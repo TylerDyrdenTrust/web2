@@ -1,80 +1,122 @@
-*{
-    font-family: Arial;
+/* Подключаем более интересные шрифты из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Slab:wght@300;400&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.back-to-main{
+.back-to-main {
     display: block;
     margin: 20px;
     width: max-content;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-body{
-    background: #f5f5f5;
+.back-to-main:hover {
+    color: #82d0f9;
 }
 
-.card{
+body {
+    background: linear-gradient(135deg, #1a2a3a, #0d1b2a); /* Градиентный тёмный фон */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
     max-width: 500px;
     width: 100%;
-    background: white;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
-    transition: 0.15s;
+    background: rgba(255, 255, 255, 0.07); /* Полупрозрачный белый */
+    backdrop-filter: blur(10px); /* Размытие для эффекта стекла */
+    -webkit-backdrop-filter: blur(10px);
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 
+        0px 8px 32px rgba(0, 0, 0, 0.2), /* Внешняя тень */
+        inset 1px 1px 0px rgba(255, 255, 255, 0.1); /* Внутренняя светлая тень для неоморфизма */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.3s ease;
+    color: #e0e0e0; /* Светлый текст для контраста */
 }
 
-.card .favorite{
+.card .favorite {
     text-align: right;
 }
 
-.card .favorite a{
+.card .favorite a {
     text-decoration: none;
+    color: #b8b8b8;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-.card img{
+.card .favorite a:hover {
+    color: #e74c3c; /* Яркий цвет при наведении для иконки */
+}
+
+.card img {
     width: 100%;
+    border-radius: 12px; /* Закруглим у картинки углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.card h3{
+.card h3 {
+    margin: 20px 0px 10px 0px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff; /* Белый для заголовка */
+}
+
+.card .info {
+    line-height: 1.5;
     margin: 16px 0px;
-    font-size: 20px;
+    font-family: 'Roboto Slab', serif; /* Второстепенный шрифт для текста */
+    font-weight: 300;
+    color: #b8b8b8;
 }
 
-.card .info{
-    line-height: 1.2;
-    margin: 16px 0px;
-
+.card .price {
+    color: #82d0f9; /* Светло-голубой вместо тёмного синего */
+    font-weight: 700;
+    font-size: 26px;
 }
 
-.card .price{
-    color: #2c3e50;
-    font-weight: bold;
-    font-size: 24px;
-   
+.card:hover {
+    transform: translateY(-5px) scale(1.01); /* Приподнимаем карточку */
+    box-shadow: 
+        0px 12px 40px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 0px rgba(255, 255, 255, 0.15);
 }
 
-.card:hover{
-    transform: scale(1.01);
-}
-
-.card .old-price{
-    color: #e74c3c;
+.card .old-price {
+    color: #e67e7e; /* Менее насыщенный пастельный красный */
     text-decoration: line-through;
     font-size: 16px;
 }
 
-.card button{
-    background: linear-gradient(to right, #3498db,#2ecc71);
+.card button {
+    background: linear-gradient(to right, #3498db, #2ecc71);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+    transition: all 0.3s ease;
 }
 
-.card button:hover{
-    filter: brightness(1.05);
+.card button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+    transform: translateY(-2px);
 }
+
