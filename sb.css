@@ -1,0 +1,953 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a1f2b;
+    --secondary-color: #2d3748;
+    --accent-color: #d4af37;
+    --accent-light: #f7e8c6;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --background-light: #f8f9fa;
+    --white: #ffffff;
+    --gold-gradient: linear-gradient(135deg, #d4af37, #f7e8c6);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --border-radius: 20px;
+    --section-padding: 100px 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка и навигация */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-brand h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.nav-brand i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gold-gradient);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--gold-gradient);
+    color: var(--primary-color) !important;
+    padding: 12px 24px !important;
+    border-radius: 50px;
+    font-weight: 600 !important;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+/* Главная секция */
+.hero {
+    position: relative;
+    color: var(--white);
+    padding: 150px 0 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(135deg, rgba(26, 31, 43, 0.8) 0%, rgba(45, 55, 72, 0.7) 100%),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--gold-gradient);
+    color: var(--primary-color);
+    padding: 8px 80px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.hero-features {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.feature i {
+    color: var(--accent-color);
+    font-size: 19px;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 48px;
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.cta-button.primary {
+    background: var(--gold-gradient);
+    color: var(--primary-color);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Общие стили секций */
+.section {
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 51px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.section-subtitle {
+    font-size: 19px;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Секция спорта */
+.sport-section {
+    position: relative;
+}
+
+.sport-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.9)),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.sport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.sport-card {
+    background: var(--white);
+    padding: 48px 32px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.sport-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold-gradient);
+}
+
+.sport-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.card-icon i {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.sport-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sport-card p {
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.card-features {
+    list-style: none;
+    text-align: left;
+}
+
+.card-features li {
+    padding: 8px 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-features i {
+    color: var(--accent-color);
+}
+
+/* Секция питания */
+.nutrition-section {
+    position: relative;
+}
+
+.nutrition-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.nutrition-card {
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    box-shadow: var(--shadow);
+}
+
+.nutrition-image {
+    background: var(--gold-gradient);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.nutrition-image i {
+    font-size: 64px;
+    color: var(--primary-color);
+}
+
+.nutrition-content {
+    padding: 48px;
+    flex: 1;
+}
+
+.nutrition-content h3 {
+    font-size: 29px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.nutrition-content p {
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.nutrition-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nutrition-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.nutrition-features i {
+    color: var(--accent-color);
+}
+
+.nutrition-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 32px;
+    background: var(--background-light);
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.stat-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Секция психологии */
+.psychology-section {
+    position: relative;
+}
+
+.psychology-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(248, 249, 250, 0.92), rgba(248, 249, 250, 0.92)),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.psychology-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.psychology-text h3 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.psychology-text p {
+    font-size: 18px;
+    margin-bottom: 32px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.psychology-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.feature-item i {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.feature-item h4 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.psychology-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-element {
+    width: 300px;
+    height: 300px;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-element i {
+    font-size: 96px;
+    color: var(--primary-color);
+}
+
+/* Секция "О нас" */
+.about-section {
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+}
+
+.about-text h3 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.about-text p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.about-features {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.about-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.about-feature i {
+    color: var(--accent-color);
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stat-card {
+    background: var(--background-light);
+    padding: 32px;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.stat-card .stat-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.stat-card .stat-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Секция контактов */
+.contact-section {
+    position: relative;
+    color: var(--white);
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(135deg, rgba(26, 31, 43, 0.9) 0%, rgba(45, 55, 72, 0.8) 100%),
+        url('background.jpg') center/cover no-repeat;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.contact-section .section-title,
+.contact-section .section-subtitle {
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info h3 {
+    font-size: 29px;
+    margin-bottom: 32px;
+    color: var(--accent-color);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.contact-item i {
+    color: var(--accent-color);
+    font-size: 19px;
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 48px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.submit-button {
+    width: 100%;
+    background: var(--gold-gradient);
+    color: var(--primary-color);
+    border: none;
+    padding: 19px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Футер */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 64px 0 32px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 48px;
+    margin-bottom: 32px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.footer-section h3 i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 16px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 13px;
+}
+
+.footer-section ul li a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 0 80px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    .nutrition-grid,
+    .psychology-content,
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .nutrition-card {
+        flex-direction: column;
+    }
+
+    .nutrition-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 960px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .sport-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .nutrition-stats {
+        flex-direction: column;
+    }
+}
