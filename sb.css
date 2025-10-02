@@ -953,3 +953,159 @@ body {
 
 }
 
+@media (max-width: 960px) {
+    /* Уменьшаем шапку пропорционально содержимому */
+    .header {
+        height: auto; /* Автоматическая высота под содержимое */
+        min-height: 50px; /* Минимальная высота */
+    }
+
+    .nav {
+        padding: 8px 20px; /* Уменьшаем отступы */
+        height: 100%;
+    }
+
+    .nav-brand h1 {
+        font-size: 20px; /* Уменьшаем логотип */
+    }
+
+    .nav-menu {
+        gap: 15px; /* Уменьшаем расстояние между пунктами */
+    }
+
+    .nav-menu a {
+        font-size: 12px; /* Уменьшаем текст меню */
+        padding: 6px 0; /* Сохраняем отступы для кликабельности */
+    }
+
+    .nav-cta {
+        padding: 6px 12px !important; /* Уменьшаем кнопку */
+        font-size: 11px !important;
+    }
+
+    /* Компенсируем отступ для героя */
+    .hero {
+        padding: 80px 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Более компактная шапка для планшетов */
+    .header {
+        min-height: 45px;
+    }
+
+    .nav {
+        padding: 6px 15px;
+    }
+
+    .nav-brand h1 {
+        font-size: 18px;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-menu a {
+        font-size: 11px;
+        padding: 5px 0;
+    }
+
+    .nav-cta {
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+    }
+
+    .hero {
+        padding: 70px 0 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Для маленьких экранов упрощаем меню */
+    .header {
+        min-height: 40px;
+    }
+
+    .nav {
+        padding: 5px 10px;
+    }
+
+    .nav-brand h1 {
+        font-size: 16px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 10px;
+        padding: 4px 0;
+    }
+
+    .nav-cta {
+        padding: 4px 8px !important;
+        font-size: 9px !important;
+    }
+
+    /* Скрываем менее важные пункты меню */
+    .nav-menu li:nth-child(2),
+    .nav-menu li:nth-child(3),
+    .nav-menu li:nth-child(4) {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 0 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Минималистичная шапка для мобильных */
+    .header {
+        min-height: 35px;
+    }
+
+    .nav {
+        padding: 4px 8px;
+    }
+
+    .nav-brand h1 {
+        font-size: 14px;
+    }
+
+    .nav-menu {
+        gap: 8px;
+    }
+
+    .nav-menu a {
+        font-size: 9px;
+        padding: 3px 0;
+    }
+
+    .nav-cta {
+        padding: 3px 6px !important;
+        font-size: 8px !important;
+    }
+
+    /* Оставляем только главное: логотип, "Главная" и кнопку */
+    .nav-menu li:not(:first-child):not(:last-child) {
+        display: none;
+    }
+
+    .hero {
+        padding: 50px 0 30px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+
